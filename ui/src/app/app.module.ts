@@ -13,6 +13,11 @@ import { LoginService } from './login.service';
 import { RegisterService } from './register.service';
 import { AlertService } from './alert.service';
 import { AlertComponent } from './alert/alert.component';
+import { AddWorkoutComponent } from './add-workout/add-workout.component';
+import { DataService } from './data.service';
+import { WorkoutService } from './workout.service';
+import { WorkoutTxnComponent } from './workout-txn/workout-txn.component';
+import { AddworkoutTxnComponent } from './addworkout-txn/addworkout-txn.component';
 
 
 @NgModule({
@@ -21,7 +26,10 @@ import { AlertComponent } from './alert/alert.component';
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    AlertComponent
+    AlertComponent,
+    AddWorkoutComponent,
+    WorkoutTxnComponent,
+    AddworkoutTxnComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +40,9 @@ import { AlertComponent } from './alert/alert.component';
   providers: [
     LoginService,
     RegisterService,
-    AlertService
+    AlertService,
+    DataService,
+    WorkoutService
   ],
   bootstrap: [AppComponent]
 })

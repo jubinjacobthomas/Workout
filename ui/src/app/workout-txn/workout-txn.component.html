@@ -1,0 +1,27 @@
+<h2>Workout Transactions</h2>
+<div class="table-responsive"> 
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Start Time</th>
+      <th scope="col">End Time</th>
+      <th scope="col">Duration</th>
+      <th scope="col">Calories Burnt</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let workoutTxn of workoutsTxns; let i = index;">
+          <th scope="row">{{workoutsTxns.indexOf(workoutTxn)+1}}</th>
+          <td>{{workoutTxn[1][0]}}-{{workoutTxn[1][1]}}-{{workoutTxn[1][2]}} {{workoutTxn[1][3]}}:{{workoutTxn[1][4]}}:{{workoutTxn[1][5]}}</td>
+          <td>{{workoutTxn[2][0]}}-{{workoutTxn[2][1]}}-{{workoutTxn[2][2]}} {{workoutTxn[2][3]}}:{{workoutTxn[2][4]}}:{{workoutTxn[2][5]}}</td>
+          <td>{{workoutTxn[3]}}</td>
+          <td>{{workoutTxn[4]}}</td>
+      </tr>
+  </tbody>
+</table>
+</div>
+<div class="form-actions">
+  <button class="btn btn-info " (click)="addWorkoutTxn()">Add</button>
+  <button class="btn btn-info " (click)="backRedirect()">Back</button>
+ </div>

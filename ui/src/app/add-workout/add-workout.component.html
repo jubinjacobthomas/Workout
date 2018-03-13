@@ -1,0 +1,35 @@
+<div class="col-md-6 col-md-offset-3">
+  <h2>Add Workout</h2>
+  <form name="form" (ngSubmit)="f.form.valid && addWorkout()" #f="ngForm" novalidate>
+      <div class="form-group" >
+          <label for="title">Workout Title</label>
+          <div class="form-group">
+      <select class="form-control" name="title" [(ngModel)]="workout.title" #title="ngModel" required>
+      <option>Running</option>
+      <option>Walking</option>
+      <option>Push Ups</option>
+      <option>Sit Ups</option>
+      <option>Crunches</option>  
+    </select>
+          </div>
+      </div>
+      <div class="form-group" >
+          <label for="amountOfCalPerUnittime">Amount Of Calories Burnt</label>
+          <input type="number" step ="0.01" name="calBurntPerUnitTime" id="calBurntPerUnitTime" class="form-control" [(ngModel)]="workout.calBurntPerUnitTime"  #calBurntPerUnitTime="ngModel" required />
+      </div>
+      <div class="form-group" >
+          <label for="unitTime">UnitTime</label>
+           <div class="form-group">
+      <select class="form-control" name="unitTime" [(ngModel)]="workout.unitTime" #unitTime="ngModel" required >
+      <option>HOUR</option>
+      <option>MINUTE</option>
+      <option>SECOND</option>
+    </select>
+          </div>
+      </div>
+      <div class="form-actions">
+          <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-info btn-md">Submit</button>
+          <a (click)="redirect()" class="btn btn-link">Cancel</a>
+      </div>
+  </form>
+</div>
