@@ -33,4 +33,22 @@ export class WorkoutService {
   getWorkoutTxn(): Observable<any>{
     return this.http.get<any>(this.workoutTxnUrl + this.dataService.workoutId);
   }
+
+  addWorkoutTxn(txn: any): Observable<any>{
+    let body = {
+      "startTime": txn.startTime,
+      "stopTime": txn.endTime,
+      "workout":{
+                  "workoutId": this.dataService.workoutId,
+                  "calBurntPerUnitTime":this.dataService.workout[1],
+                  "title": this.dataService.workout[2],
+                  "unitTime":this.dataService.workout[3],
+                  "user":{
+                           "userId":this.dataService.userId
+                  }
+
+      }
+    }
+    return this.http.post<any>(this.workoutTxnUrl,body);
+  }
 }

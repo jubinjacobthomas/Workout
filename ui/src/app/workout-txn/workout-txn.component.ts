@@ -20,11 +20,6 @@ export class WorkoutTxnComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.route.params.subscribe(
-      (params : Params) => {
-        this.dataService.workoutId = params["workoutId"]; 
-      }
-   );
     this.workoutService.getWorkoutTxn().subscribe(
       data => { this.workoutsTxns = data
       }
@@ -33,6 +28,10 @@ export class WorkoutTxnComponent implements OnInit {
 
   addWorkoutTxn(){
     this.router.navigate(['addworkouttxn']);
+  }
+
+  backRedirect(){
+    this.router.navigate(['dashboard']);
   }
 
 }

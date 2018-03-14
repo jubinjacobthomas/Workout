@@ -9,5 +9,6 @@ export class DataService {
   public endpointUrl = "http://localhost:8080/"
   public userId: String;
   public workoutId: String;
+  public workout: any;
 
 }

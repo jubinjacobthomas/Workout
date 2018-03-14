@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { WorkoutService } from '../workout.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,15 +14,23 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private dataService: DataService,
+    private router: Router,
     private workoutService: WorkoutService
   ) { }
 
   ngOnInit() {
-    console.log(" sdfsf ", this.dataService.userId);
     this.workoutService.getWorkouts(this.dataService.userId).subscribe(
-      data => { this.workouts = data
+      data => { 
+        this.workouts = data;
     }
     );
   }
+
+  goToTxn(workout:any){
+    this.dataService.workout = workout;
+    this.dataService.workoutId = workout[0];
+    this.router.navigate(['workouttxn']);
+  }
+
 
 }

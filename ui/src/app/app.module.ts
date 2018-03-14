@@ -18,6 +18,8 @@ import { DataService } from './data.service';
 import { WorkoutService } from './workout.service';
 import { WorkoutTxnComponent } from './workout-txn/workout-txn.component';
 import { AddworkoutTxnComponent } from './addworkout-txn/addworkout-txn.component';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -35,7 +37,10 @@ import { AddworkoutTxnComponent } from './addworkout-txn/addworkout-txn.componen
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    OwlDateTimeModule, 
+    OwlNativeDateTimeModule,
+    BrowserAnimationsModule
   ],
   providers: [
     LoginService,

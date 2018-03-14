@@ -20,8 +20,8 @@ public class WorkoutService {
 
 	}
 	
-	public List<WorkOut> getWorkoutDetails(Long userId){
-		List<WorkOut> userList=workoutRepo.findByUserId(userId);
+	public Iterable<WorkOut> getWorkoutDetails(Long userId){
+		Iterable<WorkOut> userList=workoutRepo.findByUserId(userId);
 		return userList;
 	}
 }

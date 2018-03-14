@@ -33,10 +33,9 @@ public class UserController {
 	public ResponseEntity<String> createUser(@RequestBody User userObj) {
 		Map<String, Object> message = new HashMap<String, Object>();
 		Long userExists = userService.findByUserName(userObj);
-		System.out.println("....... " +userExists);
 		ResponseEntity<String> response = null;
 		if (userExists!= null && userExists !=0) {
-			message.put("message", "There is already a user registered with the email provided!");
+			message.put("message", "There is already a user registered with the userid provided!");
 			message.put("Status", "Error");
 			response = new ResponseEntity<String>(new Gson().toJson(message), HttpStatus.FORBIDDEN);
 		} else {
@@ -48,32 +47,6 @@ public class UserController {
 		}
 		return response;
 	}
-
-	/*@RequestMapping(value={"/login"}, method = RequestMethod.GET)
-	public ResponseEntity<String> login(@RequestParam(value = "error", required = false) String error,
-			@RequestParam(value = "logout", required = false) String logout) {
-
-		ResponseEntity<String> response = null;
-		Map<String, Object> message = new HashMap<String, Object>();
-		if (error != null) {
-			message.put("message", "Invalid username and password!");
-			message.put("Status", "Error");
-			response = new ResponseEntity<String>(new Gson().toJson(message), HttpStatus.FORBIDDEN);
-		} else {
-			message.put("message", "User Authenticated Successfully.");
-			message.put("Status", "Success");
-			response = new ResponseEntity<String>(new Gson().toJson(message), HttpStatus.OK);
-		}
-
-		if (logout != null) {
-			message.put("message", "You've been logged out successfully.");
-			message.put("Status", "Success");
-			response = new ResponseEntity<String>(new Gson().toJson(message), HttpStatus.OK);
-		}
-		return response;
-
-	}
-*/
 	
     @RequestMapping(method = RequestMethod.GET, value = "/login")
     public ResponseEntity<String> authenticateUser(@RequestHeader("userName") String user_name,
